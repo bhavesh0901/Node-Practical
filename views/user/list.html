@@ -1,0 +1,66 @@
+<!--
+including header content which is common for all pages
+-->
+<%- include ('../layouts/header.html') %>
+<%- include ('../partials/headers.html') %>
+
+<body>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group col-md-2">
+        <input type="text" class="form-control" id="name" placeholder="Search by name">
+      </div>
+      <div class="form-group col-md-2">
+        <input type="text" class="form-control" id="city" placeholder="Search by City">
+      </div>
+      <div class="form-group col-md-2">
+        <input type="text" class="form-control" id="state" placeholder="Search by state">
+      </div>
+      <div class="form-group col-md-2">
+        <input type="text" class="form-control" id="hobbies" placeholder="Search by hobbies">
+      </div>
+      <div class="form-group col-md-2">
+        <input type="text" class="form-control" id="books" placeholder="Search by book">
+      </div>
+    </div>
+    <div class="margin-grid">
+      <table id="tables" class="display table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Contact</th>
+            <th>State</th>
+            <th>City</th>
+            <th>Hobbies</th>
+            <th>Book</th>
+            <th>Salary</th>
+            <th>Image</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (data) { %>
+          <% data.forEach(function(user){ %>
+          <tr>
+            <td><%= user.name %></td>
+            <td><%= user.email %></td>
+            <td><%= user.contact %></td>
+            <td><%= user.state %></td>
+            <td><%= user.city %></td>
+            <td><%= user.hobbies %></td>
+            <td><%= user.book %></td>
+            <td><%= user.salary %></td>
+            <td><img class="logo" height="40px" width="40px" src="/uploads/<%=user.image%>" alt="img"></td>
+          </tr>
+          <% }) %>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+</body>
+
+<%- include ('../partials/script.html') %>
+<!--
+including footer content which is common for all pages
+-->
+<%- include ('../layouts/footer.html') %>
